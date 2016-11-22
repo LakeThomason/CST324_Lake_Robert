@@ -9,9 +9,10 @@ namespace ToTheRescueDataPop
         static void Main()
         {
             // initialize data if no data exists
+            List<int> soundIDList = ProductDB.GetSoundIDList();
             List<int> imageIDList = ProductDB.GetImageIDList();
             List<int> dataImageIDList = ProductDB.GetDataImageIDList();
-            List<int> soundIDList = ProductDB.GetSoundIDList();
+           
 
             if (imageIDList.Count == 0)
             {

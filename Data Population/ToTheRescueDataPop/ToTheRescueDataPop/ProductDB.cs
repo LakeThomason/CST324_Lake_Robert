@@ -8,16 +8,16 @@ namespace ToTheRescueDataPop
     class ProductDB
     {
         // The directory for the images
-        public static string IMAGES_PATH = "..\\..\\testMedia\\";
-        public static string SOUND_PATH = "..\\..\\testMedia\\";
-        static string DB_USER_NAME = "";
+        public static string IMAGES_PATH = "C:\\Users\\lake.sainthomason\\Documents\\GitHub\\CST324_Lake_Robert\\Data Population\\testMedia\\";
+        public static string SOUND_PATH = "C:\\Users\\lake.sainthomason\\Documents\\GitHub\\CST324_Lake_Robert\\Data Population\\testMedia\\";
+        static string DB_USER_NAME = "lake_sainthomason";
         static string DB_USER_PWD = "";
         public static SqlConnection GetConnection()
         {
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString =
                 "Data Source=aura.students.cset.oit.edu" +
-                ";Initial Catalog=" + DB_USER_NAME +
+                ";Initial Catalog=" + DB_USER_NAME + 
                 ";Integrated Security=False" +
                 ";User ID=" + DB_USER_NAME + ";Password=" + DB_USER_PWD;
             return connection;
@@ -47,7 +47,7 @@ namespace ToTheRescueDataPop
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
                 command.CommandText =
-                    "INSERT INTO dbo.Images (ImageClass, ImageName, Images) " +
+                    "INSERT INTO CST324_Lake_Robert.Images (ImageClass, ImageName, Images) " +
                     "VALUES (@ImageClass, @ImageName, @ProductImage)";
 
                 command.Parameters.AddWithValue("@ImageClass", ImageClass);
@@ -97,7 +97,7 @@ namespace ToTheRescueDataPop
                 if (Difficulty.Equals(0))
                 {
                     command.CommandText =
-                    "INSERT INTO dbo.MiniGameMedia (MiniGameID, MiniGameMedia) " +
+                    "INSERT INTO CST324_Lake_Robert.MiniGameMedia (MiniGameID, MiniGameMedia) " +
                     "VALUES (@GameID, @ProductMedia)";
 
                     command.Parameters.AddWithValue("@GameID", GameID);
@@ -106,7 +106,7 @@ namespace ToTheRescueDataPop
                 else
                 {
                     command.CommandText =
-                        "INSERT INTO dbo.MiniGameMedia (MiniGameID, Difficulty, MiniGameMedia) " +
+                        "INSERT INTO CST324_Lake_Robert.MiniGameMedia (MiniGameID, Difficulty, MiniGameMedia) " +
                         "VALUES (@GameID, @Difficulty, @ProductMedia)";
 
                     command.Parameters.AddWithValue("@GameID", GameID);
@@ -153,7 +153,7 @@ namespace ToTheRescueDataPop
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
                 command.CommandText =
-                    "INSERT INTO dbo.Sounds (SoundClass, SoundName, Sound) " +
+                    "INSERT INTO CST324_Lake_Robert.Sounds (SoundClass, SoundName, Sound) " +
                     "VALUES (@SoundClass, @SoundName, @SoundImage)";
                 command.Parameters.AddWithValue("@SoundClass", SoundClass);
                 command.Parameters.AddWithValue("@SoundName", SoundName);
@@ -184,7 +184,7 @@ namespace ToTheRescueDataPop
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
                 command.CommandText = 
-                    "SELECT ImageID FROM Images " +
+                    "SELECT ImageID FROM CST324_Lake_Robert.Images " +
                     "ORDER BY ImageID"; 
 
                 connection.Open();
@@ -222,7 +222,7 @@ namespace ToTheRescueDataPop
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
                 command.CommandText =
-                   "SELECT MediaID FROM MiniGameMedia " +
+                   "SELECT MediaID FROM CST324_Lake_Robert.MiniGameMedia " +
                    "ORDER BY MediaID";
 
                 connection.Open();
@@ -260,7 +260,7 @@ namespace ToTheRescueDataPop
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
                 command.CommandText =
-                    "SELECT SoundID FROM Sounds " +
+                    "SELECT SoundID FROM CST324_Lake_Robert.Sounds " +
                     "ORDER BY SoundID";
 
                 connection.Open();
