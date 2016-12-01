@@ -3,7 +3,7 @@
 --Description: Creates and deletes the tables of the revised ER diagram
 
 --Note: Feel free to edit any of the VARCHAR(50) to a reasonable amount of characters
-USE lake_sainthomason;
+USE robert_mooers
 
 DROP TABLE CST324_Lake_Robert.ProfileProgressHistory;
 DROP TABLE CST324_Lake_Robert.MiniGameMedia;

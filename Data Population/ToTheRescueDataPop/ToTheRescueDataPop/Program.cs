@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace ToTheRescueDataPop
 {   
@@ -12,8 +13,8 @@ namespace ToTheRescueDataPop
             List<int> soundIDList = ProductDB.GetSoundIDList();
             List<int> imageIDList = ProductDB.GetImageIDList();
             List<int> dataImageIDList = ProductDB.GetDataImageIDList();
-           
 
+            Console.WriteLine("Uploading Images.");
             if (imageIDList.Count == 0)
             {
                 // upload images
@@ -62,6 +63,63 @@ namespace ToTheRescueDataPop
                 ProductDB.WriteImage(3, "map7.jpg", "pyramid");
             }
 
+            if (soundIDList.Count == 0)
+            {
+                // upload images
+                ProductDB.WriteSound(1, "cat.mp3", "cat");
+                ProductDB.WriteSound(1, "chipmunk.mp3", "chipmunk");
+                ProductDB.WriteSound(1, "cow.mp3", "cow");
+
+                ProductDB.WriteSound(1, "dog.mp3", "dog");
+                ProductDB.WriteSound(1, "frog.mp3", "frog");
+                ProductDB.WriteSound(1, "horse.mp3", "horse");
+
+                ProductDB.WriteSound(1, "joke.mp3", "joke");
+                ProductDB.WriteSound(1, "lion.mp3", "lion");
+                ProductDB.WriteSound(1, "monkey.mp3", "monkey");
+                ProductDB.WriteSound(1, "rooster.mp3", "rooster");
+
+                ProductDB.WriteSound(2, "background1.mp3", "background1");
+                ProductDB.WriteSound(2, "background2.mp3", "background2");
+                ProductDB.WriteSound(2, "background3.mp3", "background3");
+
+                ProductDB.WriteSound(2, "background4.mp3", "background4");
+                ProductDB.WriteSound(2, "background5.mp3", "background5");
+            }
+
+            string path;
+            //users
+            Console.WriteLine("Uploading Users.");
+            path = Path.Combine(Environment.CurrentDirectory, "CST324_Lake_Robert.Users.sql");
+            Console.WriteLine(path);
+            ProductDB.WriteSQL(path);
+            //profiles
+            Console.WriteLine("Uploading Profiles.");
+            path = Path.Combine(Environment.CurrentDirectory, "CST324_Lake_Robert.Profiles.sql");
+            Console.WriteLine(path);
+            ProductDB.WriteSQL(path);
+            //maps
+            Console.WriteLine("Uploading Maps.");
+            path = Path.Combine(Environment.CurrentDirectory, "CST324_Lake_Robert.Maps.sql");
+            Console.WriteLine(path);
+            ProductDB.WriteSQL(path);
+            //nodes
+            Console.WriteLine("Uploading Nodes.");
+            path = Path.Combine(Environment.CurrentDirectory, "CST324_Lake_Robert.Nodes.sql");
+            Console.WriteLine(path);
+            ProductDB.WriteSQL(path);
+            //gamecategories
+            Console.WriteLine("Uploading GameCategories.");
+            path = Path.Combine(Environment.CurrentDirectory, "CST324_Lake_Robert.GameCategories.sql");
+            Console.WriteLine(path);
+            ProductDB.WriteSQL(path);
+            //minigames
+            Console.WriteLine("Uploading Minigames.");
+            path = Path.Combine(Environment.CurrentDirectory, "CST324_Lake_Robert.Minigames.sql");
+            Console.WriteLine(path);
+            ProductDB.WriteSQL(path);
+
+            Console.WriteLine("Uploading Minigamemedia.");
             if (dataImageIDList.Count == 0)
             {
                 ProductDB.WriteMiniGameMedia(10, "circle.jpg", 0);
@@ -88,29 +146,28 @@ namespace ToTheRescueDataPop
                 ProductDB.WriteMiniGameMedia(1, "bubblepop.mp3", 0);
             }
 
-            if (soundIDList.Count == 0)
-            {
-                // upload images
-                ProductDB.WriteSound(1, "cat.mp3", "cat");
-                ProductDB.WriteSound(1, "chipmunk.mp3", "chipmunk");
-                ProductDB.WriteSound(1, "cow.mp3", "cow");
+            //Animals
+            Console.WriteLine("Uploading Animals.");
+            path = Path.Combine(Environment.CurrentDirectory, "CST324_Lake_Robert.Animals.sql");
+            Console.WriteLine(path);
+            ProductDB.WriteSQL(path);
+            //ProfileAnimals
+            Console.WriteLine("Uploading ProfileAnimals.");
+            path = Path.Combine(Environment.CurrentDirectory, "CST324_Lake_Robert.ProfileAnimals.sql");
+            Console.WriteLine(path);
+            ProductDB.WriteSQL(path);
+            //ProfileProgress
+            Console.WriteLine("Uploading ProfileProgress.");
+            path = Path.Combine(Environment.CurrentDirectory, "CST324_Lake_Robert.ProfileProgress.sql");
+            Console.WriteLine(path);
+            ProductDB.WriteSQL(path);
+            //ProfileProgressHistory
+            Console.WriteLine("Uploading ProfileProgressHistory.");
+            path = Path.Combine(Environment.CurrentDirectory, "CST324_Lake_Robert.ProfileProgressHistory.sql");
+            Console.WriteLine(path);
+            ProductDB.WriteSQL(path);
 
-                ProductDB.WriteSound(1, "dog.mp3", "dog");
-                ProductDB.WriteSound(1, "frog.mp3", "frog");
-                ProductDB.WriteSound(1, "horse.mp3", "horse");
-
-                ProductDB.WriteSound(1, "joke.mp3", "joke");
-                ProductDB.WriteSound(1, "lion.mp3", "lion");
-                ProductDB.WriteSound(1, "monkey.mp3", "monkey");
-                ProductDB.WriteSound(1, "rooster.mp3", "rooster");
-
-                ProductDB.WriteSound(2, "background1.mp3", "background1");
-                ProductDB.WriteSound(2, "background2.mp3", "background2");
-                ProductDB.WriteSound(2, "background3.mp3", "background3");
-
-                ProductDB.WriteSound(2, "background4.mp3", "background4");
-                ProductDB.WriteSound(2, "background5.mp3", "background5");  
-            }
+            Console.WriteLine("-----Done!-----");
         }     
     }
 }
