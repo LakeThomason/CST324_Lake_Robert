@@ -9,8 +9,8 @@ namespace ToTheRescueDataPop
     class ProductDB
     {
         // The directory for the images
-        public static string IMAGES_PATH = @"C:\Users\Atlas\Documents\GitHub\CST324_Lake_Robert\Data Population\testMedia\";
-        public static string SOUND_PATH = @"C:\Users\Atlas\Documents\GitHub\CST324_Lake_Robert\Data Population\testMedia\";
+        public static string IMAGES_PATH = Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\..\\testMedia\\");
+        public static string SOUND_PATH = Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\..\\testMedia\\");
         static string DB_USER_NAME = "robert_mooers";
         static string DB_USER_PWD = "";
         public static SqlConnection GetConnection()
